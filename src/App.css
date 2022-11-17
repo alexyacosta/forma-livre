@@ -20,6 +20,16 @@
   font-family: 'Major Mono Display', monospace;
 }
 
+.main-header-app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #212121;
+  color: whitesmoke;
+  font-family: 'Major Mono Display', monospace;
+}
+
 .create-form label{
   color: whitesmoke !important;
   font-family: 'Montserrat', sans-serif;
