@@ -1,0 +1,9 @@
+# let's ignore everything here
+*
+!*/
+
+# except...
+
+!/postgres/.git-keep
+
+!.gitignore

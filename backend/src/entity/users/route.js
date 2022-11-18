@@ -5,5 +5,5 @@ const controller = require('./controller')
 const router = Router()
 module.exports = router
 
-router.get('/', controller.getUser)
+router.get('/', controller.getAllUsers)
 router.post('/', controller.createUser)
