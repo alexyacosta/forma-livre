@@ -3,8 +3,38 @@ version: '3.7'
 
 services:
   frontend:
-    container_name: forma-livre-frontend
+    container_name: ${APP_FRONTEND_NAME}
     build:
       context: frontend
     ports:
-      - 8080:80
+      - ${APP_FRONTEND_PORT}:80
+    networks:
+      - formalivrenet
+    env_file:
+      - ./.env
+
+  backend:
+    container_name: ${APP_BACKEND_NAME}
+    build:
+      context: backend
+    ports:
+      - ${APP_BACKEND_PORT}:${APP_BACKEND_PORT}
+    networks:
+      - formalivrenet
+    env_file:
+      - ./.env
+
+  database:
+    image: postgres:15.1-bullseye
+    container_name: ${APP_DATABASE_NAME}
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    networks:
+      - formalivrenet
+    env_file:
+      - ./.env
+
+networks:
+  formalivrenet:
+    external:
+      name: formalivrenet
