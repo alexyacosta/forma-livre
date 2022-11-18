@@ -2,27 +2,27 @@ version: '3.7'
 
 
 services:
-  frontend:
-    container_name: ${APP_FRONTEND_NAME}
-    build:
-      context: frontend
-    ports:
-      - ${APP_FRONTEND_PORT}:80
-    networks:
-      - formalivrenet
-    env_file:
-      - ./.env
+# frontend:
+#   container_name: ${APP_FRONTEND_NAME}
+#   build:
+#     context: frontend
+#   ports:
+#     - ${APP_FRONTEND_PORT}:80
+#   networks:
+#     - formalivrenet
+#   env_file:
+#     - ./.env
 
-  backend:
-    container_name: ${APP_BACKEND_NAME}
-    build:
-      context: backend
-    ports:
-      - ${APP_BACKEND_PORT}:${APP_BACKEND_PORT}
-    networks:
-      - formalivrenet
-    env_file:
-      - ./.env
+# backend:
+#   container_name: ${APP_BACKEND_NAME}
+#   build:
+#     context: backend
+#   ports:
+#     - ${APP_BACKEND_PORT}:${APP_BACKEND_PORT}
+#   networks:
+#     - formalivrenet
+#   env_file:
+#     - ./.env
 
   database:
     image: postgres:15.1-bullseye

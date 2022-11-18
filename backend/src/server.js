@@ -6,7 +6,8 @@ const entityUsers = require('./entity/users')
 const entityProjects = require('./entity/projects')
 
 const app = express()
-const port = parseInt(process.env.APP_BACKEND_PORT)
+// const port = parseInt(process.env.APP_BACKEND_PORT)
+const port = 10999
 
 // middlewares
 app.use(bodyParser.urlencoded({ extended: false }))
