@@ -6,7 +6,8 @@ import { Button } from 'semantic-ui-react';
 class Home extends Component {
   render() {
     return (
-      <div className="main">    
+      <div className="main">
+        <h2 className="main-header-app">Forma Livre 3D</h2>    
         <br />
         <div>
           <Link to={"/create"}>

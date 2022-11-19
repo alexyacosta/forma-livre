@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-
 const entityUsers = require('./entity/users')
 const entityProjects = require('./entity/projects')
 

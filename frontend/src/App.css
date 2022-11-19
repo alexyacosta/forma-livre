@@ -2,16 +2,12 @@
 
 .App {
   text-align: center;
-  font-family: 'Major Mono Display', monospace;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .main{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #212121;
   color: whitesmoke;
   flex-direction: column;
 }
@@ -23,8 +19,6 @@
 .main-header-app{
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
   background-color: #212121;
   color: whitesmoke;
   font-family: 'Major Mono Display', monospace;

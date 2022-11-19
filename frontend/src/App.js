@@ -11,9 +11,9 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        <h2 className="main-header-app">Forma Livre 3D</h2>
+        
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="" element={<Home />} />
           <Route path="/create" element={<Create />} />
           <Route path="/login" element={<Login />} />
         </Routes>
