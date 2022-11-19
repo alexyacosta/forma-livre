@@ -7,3 +7,5 @@ module.exports = router
 
 router.get('/', controller.getAllUsers)
 router.post('/', controller.createUser)
+
+router.post('/login', controller.authUser)

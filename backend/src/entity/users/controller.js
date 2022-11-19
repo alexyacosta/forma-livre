@@ -2,18 +2,49 @@ const humps = require('humps')
 
 const model = require('./model')
 
-const getAllUsers = async (req, res, next) => {
+module.exports.authUser = async (req, res, next) => {
+  try {
+    const { username, passw } = req.body
+
+    if (!(typeof username === 'string' && typeof passw === 'string')) {
+      return res.sendStatus(400)
+    }
+
+    const isAuthenticated = await model.authUser(username, passw)
+    return res.send({ isAuthenticated })
+  } catch (e) {
+    next(e)
+  }
+}
+
+module.exports.getAllUsers = async (req, res, next) => {
   res.send('hello')
 }
 
-const createUser = async (req, res) => {
-  const full_name = req.body.full_name;
-  const username = req.body.username;
-  const passw = req.body.passw;
-  res.send({ full_name, username })
-}
+module.exports.createUser = async (req, res, next) => {
+  try {
+    const { fullName, username, passw } = req.body
 
-module.exports = {
-  getAllUsers,
-  createUser
+    if (!(typeof fullName === 'string' && typeof username === 'string' && typeof passw === 'string')) {
+      return res.sendStatus(400)
+    }
+
+    const usernameAlreadyTaken = await model.checkIfUserExists(username)
+    if (usernameAlreadyTaken) {
+      return res.send({
+        created: false,
+        userId: null,
+        message: `Usuário "${username}" já foi registrado`
+      })
+    }
+
+    const userId = await model.createUser(fullName, username, passw)
+    res.send({
+      created: true,
+      userId,
+      message: `Usuário "${username}" criado com sucesso`
+    })
+  } catch (e) {
+    next(e)
+  }
 }
