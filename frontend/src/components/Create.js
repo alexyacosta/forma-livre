@@ -3,13 +3,13 @@ import axios from 'axios';
 import { Button, Form } from 'semantic-ui-react'
 
 export default function Create() {
-    const [full_name, setName] = useState('');
+    const [fullName, setName] = useState('');
     const [username, setUsername] = useState('');
     const [passw, setPassw] = useState('');
-    
+
     const postData = () => {
       axios.post("http://localhost:10999/api/users", {
-        full_name,
+        fullName,
         username,
         passw
     })
