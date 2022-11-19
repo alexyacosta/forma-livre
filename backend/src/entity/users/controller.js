@@ -10,8 +10,11 @@ module.exports.authUser = async (req, res, next) => {
       return res.sendStatus(400)
     }
 
-    const isAuthenticated = await model.authUser(username, passw)
-    return res.send({ isAuthenticated })
+    const userId = await model.authUser(username, passw)
+    return res.send({
+      isAuthenticated: userId !== null,
+      userId
+    })
   } catch (e) {
     next(e)
   }

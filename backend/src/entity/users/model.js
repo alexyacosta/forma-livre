@@ -7,13 +7,13 @@ module.exports.getAllUsers = () => postgres.query(`
 
 module.exports.authUser = async (username, passw) => {
   const query = `
-    SELECT COUNT(*)
+    SELECT u.id
     FROM   users AS u
     WHERE  u.username = $(username) AND u.passw = $(passw)
   `
 
   const [res] = await postgres.query(query, { username, passw })
-  return res.count > 0
+  return res === undefined ? null : res.id
 }
 
 module.exports.createUser = async (fullName, username, passw) => {
