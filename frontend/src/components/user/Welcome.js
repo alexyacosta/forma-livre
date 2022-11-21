@@ -5,7 +5,7 @@ import { ProjContent } from "../projects/ProjContent"
 
 const Content = ({ content }) => {
 
-	const url = {ProjContent}
+	const url = "https://cdn-icons-png.flaticon.com/512/1946/1946429.png";
 
 	return (
 		<motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }}exit={{ opacity: 0 }}>
