@@ -14,11 +14,11 @@ export default function Login() {
             <Form className="create-form">
                 <Form.Field>
                     <label>Usuário</label>
-                    <input placeholder='Usuário' required onChange={(e) => setFirstName(e.target.value)}/>
+                    <input type="text" placeholder='Usuário' required onChange={(e) => setFirstName(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
                     <label>Senha</label>
-                    <input placeholder='Senha' required onChange={(e) => setLastName(e.target.value)}/>
+                    <input type="password" placeholder='Senha' required onChange={(e) => setLastName(e.target.value)}/>
                 </Form.Field>
                 <Button onClick={postData} type='submit'>Acessar</Button>
             </Form>

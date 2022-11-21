@@ -1,7 +1,6 @@
 import React from "react";
 import { AnimateSharedLayout } from "framer-motion";
 import Welcome from "./Welcome";
-import "./App.css";
 
 // This is an example of animating shared layouts
 // using react and framer-motion library.
