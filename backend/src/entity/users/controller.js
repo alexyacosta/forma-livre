@@ -31,7 +31,7 @@ module.exports.createUser = async (req, res, next) => {
     if (!(typeof fullName === 'string' && typeof username === 'string' && typeof passw === 'string')) {
       return res.sendStatus(400)
     }
-
+    
     const usernameAlreadyTaken = await model.checkIfUserExists(username)
     if (usernameAlreadyTaken) {
       return res.send({

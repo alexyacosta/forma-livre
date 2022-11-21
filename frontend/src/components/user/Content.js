@@ -2,8 +2,6 @@ import React from "react";
 import { AnimateSharedLayout } from "framer-motion";
 import Welcome from "./Welcome";
 
-// This is an example of animating shared layouts
-// using react and framer-motion library.
 const itemsList = [
 {
 	index: 0,
@@ -12,16 +10,13 @@ optimised for 60fps animation and gestures.`
 },
 {
 	index: 1,
-	content: `Motion can animate:
-	Numbers: 0, 10 etc.
-	Strings containing numbers: "0vh", "10px" etc.`
+	content: `https://assets2.domestika.org/course-images/000/012/182/12182-big.gif`
 },
 
 ];
 
 const Content = () => {
 return (
-	// The framer-motion component to wrap Item component to animate it
 	<AnimateSharedLayout>
 	{/* Mapping through itemList array to render layouts*/}
 	{itemsList.map((item) => (
