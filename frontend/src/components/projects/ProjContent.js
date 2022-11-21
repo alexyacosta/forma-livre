@@ -3,30 +3,30 @@ import { AnimateSharedLayout } from "framer-motion";
 
 import ProjContent2 from "./ProjContent2";
 
-//const url = {https://assets2.domestika.org/course-images/000/012/182/12182-big.gif}
+const proj0 = require('../../assets/proj0.gif');
+const proj2 = require('../../assets/proj2.gif');
+
 
 const itemsList = [
 {
 	index: 0,
-	content: `Motion components are DOM primitives
-optimised for 60fps animation and gestures.`
+	content: <img src={proj0} width="400" height="400" display= "flex" align-items= "center" alt="PROJETO 0"/>
 },
 {
 	index: 1,
-	content: '´oi´'
+	content: <img src={proj2} width="400" height="400" display= "flex" align-items= "center" alt="PROJETO 2"/>
 },
 
 ];
 
-const ProjContent = () => {
+const Content = () => {
 return (
 	<AnimateSharedLayout>
+	{}
 	{itemsList.map((item) => (
-		<ProjContent key={item.index} content={item.content} />
+		<ProjContent2 key={item.index} content={item.content} />
 	))}
-    < ProjContent2 />
 	</AnimateSharedLayout>
 );
 };
-
-export default ProjContent;
+export default Content;
