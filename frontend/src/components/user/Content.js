@@ -16,11 +16,7 @@ optimised for 60fps animation and gestures.`
 	Numbers: 0, 10 etc.
 	Strings containing numbers: "0vh", "10px" etc.`
 },
-{
-	index: 2,
-	content: `Transform properties are accelerated by the GPU,
-	and therefore animate smoothly. `
-}
+
 ];
 
 const Content = () => {

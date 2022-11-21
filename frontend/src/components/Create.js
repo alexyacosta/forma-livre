@@ -4,20 +4,20 @@ import { Button, Form } from 'semantic-ui-react'
 
 
 export default function Create() {
-    const [full_name, setName] = useState('');
+    const [fullName, setName] = useState('');
     const [username, setUsername] = useState('');
     const [passw, setPassw] = useState('');
     const [confPass, setConfPass] = useState('')
 
     const postData = () => {
-        const valFullName = full_name !== null && full_name !== "" ?  true : alert("Campo obrigatório")
+        const valFullName = fullName !== null && fullName !== "" ?  true : alert("Campo obrigatório")
         const valUserName = username !== null && username !== "" ? true : alert("Campo obrigatório")
         const valPassword = passw !== null && passw !== "" ? true : alert("Digite a senha corretamente")
         const valConfPass = confPass !== null && confPass !== "" && confPass === passw ? true : alert("Digite a confirmação de senha corretamente")
 
         if(valFullName === true && valUserName === true && valPassword === true) {
-            axios.post("http://localhost:10999/api/users", {
-            full_name,
+            axios.post("https://10999-alexyacosta-formalivre-9tt0nfsy8ex.ws-us77.gitpod.io/api/users", {
+            fullName,
             username,
             passw
         })
