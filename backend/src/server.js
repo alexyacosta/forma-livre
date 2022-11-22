@@ -7,8 +7,7 @@ const entityUsers = require('./entity/users')
 const entityProjects = require('./entity/projects')
 
 const app = express()
-// const port = parseInt(process.env.APP_BACKEND_PORT)
-const port = 10999
+const port = parseInt(process.env.APP_BACKEND_PORT)
 
 // middlewares
 app.use(cors())
