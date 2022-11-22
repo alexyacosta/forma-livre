@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Button, Form } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
 
+import Config from '../config.json'
+
 export default function Create() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -13,7 +15,7 @@ const postData = () => {
     const valPassword = passw !== null && passw !== "" ? true : alert("Digite a senha corretamente")
 
     if (valUserName === true && valPassword === true) {
-        axios.post("https://10999-alexyacosta-formalivre-9tt0nfsy8ex.ws-us77.gitpod.io/api/users/login", {
+        axios.post(`http://${Config.BACKEND_ENDPOINT}:${Config.BACKEND_PORT}/api/users/login`, {
             username,
             passw
         })
