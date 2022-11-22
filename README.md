@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Forma Livre
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositório contém o código fonte do projeto **Forma Livre**.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Estrutura do projeto
 
-### `npm start`
+A implementação do backend, frontend e queries necessárias para construção do banco de dados estão contidos em seus
+respectivos diretórios. O frontend foi desenvolvido utilizando o framework React, o backend em NodeJS com ExpressJS e o
+banco de dados Postgres.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para agilizar o desenvolvimento, os componentes do projeto estão dockerizados (rodando em container Docker). O
+docker-compose foi incluido para montagem dos conteineres e roteamento (através da rede interna do Docker).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Como executar o projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Crie a rede interna do Docker
 
-### `npm run build`
+```sh
+docker network create formalivrenet
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Inicie os serviços
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+docker compose build --up
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Cada serviço/componente do projeto estará disponível em uma porta diferente:
 
-### `npm run eject`
+- Frontend: `http://localhost:8080`
+- Backend: `http://localhost:10999`
+- Banco de dados (postgres): `http://localhost:5432`
+- Console web de gerenciamento do banco de dados (pgadmin): `http://localhost:15432`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Crie as tabelas do banco
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Acesse o `pgadmin` pelo endereço `http://localhost:15432`. Na tela de login, insira o usuário `alexya@alexya.com` e a
+senha `loremipsum`. Clique em "Login".
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![pgadmin-login](.docs/pgadmin-login.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+No dashboard da página inicial, clique em "Add New Server".
 
-## Learn More
+![pgadmin-dashboard](.docs/pgadmin-dashboard.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+No popup que se abrir, dê um nome à conexão.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![pgadmin-conn-general](.docs/pgadmin-conn-general.png)
 
-### Code Splitting
+Na aba "connection", coloque o host como "forma-livre-database" (endereço interno do Docker), usuário `postgres` e senha
+`postgres`. Clique em "Save".
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![pgadmin-conn-creds](.docs/pgadmin-conn-creds.png)
 
-### Analyzing the Bundle Size
+Na parte lateral esquerda da página (browser), expanda até que o banco de dados `postgres` seja encontrado.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![pgadmin-browser](.docs/pgadmin-browser.png)
 
-### Making a Progressive Web App
+Clique com o botão direito em cima do banco de dados `postgres` e então clique em "Query Tool".
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![pgadmin-query-tool](.docs/pgadmin-query-tool.png)
 
-### Advanced Configuration
+Copie o SQL contido no diretório (neste projeto) "database" e cole no campo aberto. Depois clique no botão de "play"
+para executar as queries.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![pgadmin-run-query](.docs/pgadmin-run-query.png)
