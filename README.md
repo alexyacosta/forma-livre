@@ -2,6 +2,8 @@
 
 Este repositório contém o código fonte do projeto **Forma Livre**.
 
+A demonstração em video pode ser vista aqui: https://youtu.be/pJNl5fiPIGU
+
 
 ## Estrutura do projeto
 
@@ -66,3 +68,7 @@ Copie o SQL contido no diretório (neste projeto) "database" e cole no campo abe
 para executar as queries.
 
 ![pgadmin-run-query](.docs/pgadmin-run-query.png)
+
+### Acesse o frontend
+
+No navegador, acesse via `http://localhost:8080`
